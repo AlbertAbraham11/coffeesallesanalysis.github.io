@@ -63,58 +63,31 @@
       text-decoration: underline;
     }
 
-     <!-- Use a relative path if the PDF is in the same folder -->
-  <iframe class="pdf-frame" src="COFFEE ANALYSIS.sql">
-    <!-- Fallback for older browsers -->
-    <p>This browser can't display PDFs inline. <a href="COFFEE ANALYSIS.sql" target="_blank">View or download the PDF</a>.</p>
-  </iframe>
-
-  <!-- optional small download button -->
-  <div class="fallback"><a href="COFFEE ANALYSIS.sql" target="_blank">📄 Open / Download PDF</a></div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coffee Sales Insights</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f8f9fa;
-      color: #333;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      text-align: center;
-      color: #1a237e;
-    }
-    .dashboard {
-      text-align: center;
-      margin-top: 30px;
-    }
-    iframe {
-      border: 2px solid #ccc;
-      border-radius: 8px;
-    }
-    .readme {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-top: 40px;
-    }
-    a {
-      color: #1976d2;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
+
+  <!-- SQL Analysis Section -->
+<div style="flex: 1; margin-left: 20px;">
+  <h2>SQL Analysis</h2>
+  <pre id="sqlContent"
+       style="background: #f8f8f8; padding: 16px; border-radius: 8px;
+              border: 1px solid #ddd; height: 800px; overflow-y: auto;
+              font-size: 14px; line-height: 1.5;">
+    Loading SQL file...
+  </pre>
+</div>
+
+<script>
+  // Fetch and display SQL file
+  fetch('analysis.sql')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('sqlContent').textContent = data;
+    })
+    .catch(() => {
+      document.getElementById('sqlContent').textContent = 'Unable to load SQL file.';
+    });
+</script>
 
  
