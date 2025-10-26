@@ -1,36 +1,3 @@
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Power BI Dashboard and SQL Data Analysis</title>
-  <style>
-    html,body { height:100%; margin:0; }
-    .pdf-frame { width:100%; height:100vh; border:0; }
-    .fallback { position:fixed; top:10px; right:10px; background:#fff; padding:8px; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,.12); }
-  </style>
-</head>
-<body>
-  <!-- Use a relative path if the PDF is in the same folder -->
-  <iframe class="pdf-frame" src="COFFEE SALES ANALYSIS.pdf">
-    <!-- Fallback for older browsers -->
-    <p>This browser can't display PDFs inline. <a href="COFFEE SALES ANALYSIS.pdf" target="_blank">View or download the PDF</a>.</p>
-  </iframe>
-
-  <!-- optional small download button -->
-  <div class="fallback"><a href="COFFEE SALES ANALYSIS.pdf" target="_blank">📄 Open / Download PDF</a></div>
-  
-  <!-- Use a relative path if the PDF is in the same folder -->
-  <iframe class="pdf-frame" src="COFFEE SALES ANALYSIS.rpt">
-    <!-- Fallback for older browsers -->
-    <p>This browser can't display PDFs inline. <a href="COFFEE SALES ANALYSIS.rpt" target="_blank">View or Download SQL Results</a>.</p>
-  </iframe>
-
-  <!-- optional small download button -->
-  <div class="fallback"><a href="COFFEE SALES ANALYSIS.rpt" target="_blank">📄 Open / Download SQL Results</a></div>
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,13 +23,11 @@
     iframe {
       border: 2px solid #ccc;
       border-radius: 8px;
+      width: 100%;
+      height: 600px;
     }
-    .readme {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-top: 40px;
+    .fallback {
+      margin-top: 10px;
     }
     a {
       color: #1976d2;
@@ -71,8 +36,23 @@
     a:hover {
       text-decoration: underline;
     }
-
   </style>
 </head>
 <body>
+  <h1>Coffee Sales Insights</h1>
 
+  <div class="dashboard">
+    <h2>Power BI Dashboard</h2>
+    <iframe src="COFFEE SALES ANALYSIS.pdf">
+      <p>This browser can't display PDFs inline. <a href="COFFEE SALES ANALYSIS.pdf" target="_blank">View PDF</a></p>
+    </iframe>
+  </div>
+
+  <div class="dashboard">
+    <h2>SQL Results</h2>
+    <div class="fallback">
+      <p>Cannot display .rpt inline. <a href="COFFEE SALES ANALYSIS.rpt" target="_blank">Download SQL Results</a></p>
+    </div>
+  </div>
+</body>
+</html>
