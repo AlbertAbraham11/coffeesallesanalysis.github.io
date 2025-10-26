@@ -22,6 +22,19 @@
   <div class="fallback"><a href="COFFEE SALES ANALYSIS.pdf" target="_blank">📄 Open / Download PDF</a></div>
 </body>
 </html>
+
+</head>
+<body>
+  <!-- Use a relative path if the PDF is in the same folder -->
+  <iframe class="pdf-frame" src="COFFEE SALES ANALYSIS.pdf">
+    <!-- Fallback for older browsers -->
+    <p>This browser can't display PDFs inline. <a href="COFFEE SALES ANALYSIS.pdf" target="_blank">View or download the PDF</a>.</p>
+  </iframe>
+
+  <!-- optional small download button -->
+  <div class="fallback"><a href="COFFEE SALES ANALYSIS.pdf" target="_blank">📄 Open / Download PDF</a></div>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,40 +80,3 @@
 </head>
 <body>
 
- <!-- SQL Analysis & Results Side-by-Side -->
-<section style="display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; margin-top:40px;">
-  <!-- SQL Code -->
-  <div style="flex:1; min-width:300px;">
-    <h2>SQL Code</h2>
-    <pre id="sqlContent"
-         style="background:#f8f8f8; padding:16px; border-radius:8px; border:1px solid #ddd; height:400px; overflow:auto;">
-      Loading SQL file...
-    </pre>
-  </div>
-
-  <!-- SQL Results -->
-  <div style="flex:1; min-width:300px;">
-    <h2>Query Results</h2>
-    <table id="resultsTable" border="1" style="border-collapse:collapse; width:100%; font-size:14px;"></table>
-  </div>
-</section>
-
-<script>
-  // Load SQL code
-  fetch('sql/analysis.sql')
-    .then(r => r.text())
-    .then(data => document.getElementById('sqlContent').textContent = data);
-
-  // Load query results from CSV
-  fetch('sql/results.csv')
-    .then(r => r.text())
-    .then(data => {
-      const rows = data.trim().split('\n').map(r => r.split(','));
-      let html = '<thead><tr>' + rows[0].map(h => `<th>${h}</th>`).join('') + '</tr></thead><tbody>';
-      for (let i = 1; i < rows.length; i++) {
-        html += '<tr>' + rows[i].map(c => `<td>${c}</td>`).join('') + '</tr>';
-      }
-      html += '</tbody>';
-      document.getElementById('resultsTable').innerHTML = html;
-    });
-</script>
